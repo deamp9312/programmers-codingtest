@@ -1,0 +1,22 @@
+100점
+
+class Solution {
+    public String solution(int a, int b) {
+        String[] day = {"SUN","MON","TUE","WED","THU","FRI","SAT"};
+        int[] mday = {31, 29, 31, 30,31,30,31,31,30,31,30,31};
+        
+        int x=0;
+        int y=0;
+        if(a!=1){
+        for(int i=0;i<a-1;i++){
+            x+=mday[i];
+        }
+        }
+        x+=b;
+        y=(x%7)-1;
+        
+
+        String answer = day[(5+y)%7];
+        return answer;
+    }
+}
