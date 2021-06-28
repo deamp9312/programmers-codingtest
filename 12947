@@ -1,0 +1,22 @@
+class Solution {
+    public boolean solution(int x) {
+        boolean answer = true;
+        
+        String str;
+        str = Integer.toString(x);
+
+        int b=0;
+
+        for(int i=0;i<str.length();i++) {
+            b += str.charAt(i) - '0';
+        }
+
+        if(x%b==0)
+            answer=true;
+        else
+            answer=false;
+        
+        
+        return answer;
+    }
+}
