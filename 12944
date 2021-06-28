@@ -1,0 +1,12 @@
+쉬운거 풀었다,,,, 뭐라도 안 올리긴 그렇고... 1일1 커밋 하고싶어성,,, 다만 공부하는거는 유료강의라서 올리기엔... 킹작권...
+
+class Solution {
+  public double solution(int[] arr) {
+      double answer = 0;
+      for(int i=0; i<arr.length; i++){
+          answer += arr[i];
+      }
+      answer /= arr.length;
+      return answer;
+  }
+}
