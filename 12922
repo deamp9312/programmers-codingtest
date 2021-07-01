@@ -1,0 +1,15 @@
+class Solution {
+    public String solution(int n) {
+        String aa = "수박";
+        
+        
+        String answer = "";
+        
+        for(int i=0;i<n;i++){
+            answer+= aa.charAt(i%2);
+        }
+        
+        
+        return answer;
+    }
+}
