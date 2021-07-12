@@ -1,0 +1,42 @@
+---최대 공약수
+
+static int gcd(int x,int y){
+        if(y==0)
+            return x;
+        else
+            return gcd(y, x % y);
+    }
+    
+
+
+
+-----하노이 원반
+
+class Hanoi{
+  
+  static void move(int no,int x,int y){
+  
+    if(no>1)
+      move(no-1,x,6-x-y);
+      
+    if(no>1)
+      move(no-1,6-x-y,y);
+  }
+
+
+}
+
+
+
+--------
+
+
+
+
+
+
+
+
+
+
+
