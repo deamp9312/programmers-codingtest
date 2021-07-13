@@ -19,3 +19,37 @@ class Solution {
         return answer;
     }
 }
+
+
+---지문을 잘못 이해해 ,,, 풀이가 틀렸고 고쳤습니다...
+
+class Solution {
+    public String solution(String s) {
+        String answer = "";
+        String[] temp = s.split(" ",-1);
+
+
+        for (int i = 0; i < temp.length; i++) {
+            for (int j = 0; j < temp[i].length(); j++) {
+
+                if (j % 2 == 0) {
+                    if (temp[i].charAt(j) >= 97 && temp[i].charAt(j) <= 122) {
+                        answer += (char) (temp[i].charAt(j) - 32);
+                    } else answer += temp[i].charAt(j);
+
+                } else {
+                    if (temp[i].charAt(j) >= 65 && temp[i].charAt(j) <= 90) {
+                        answer += (char) (temp[i].charAt(j) + 32);
+                    } else
+                        answer += temp[i].charAt(j);
+
+                }
+            }
+            if(!(i==temp.length-1))
+            answer+= " ";
+
+
+        }
+        return answer;
+    }
+}
