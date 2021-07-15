@@ -1,0 +1,21 @@
+------효율성 문제로 인해 통과하지 못 했다, 단순히 동작만 보는게 아니라 효율성 까지 체크하는 문제였나보다,,,
+
+class Solution {
+    public int solution(int n) {
+        int answer = 0;
+        for(int i=2;i<=n;i++){
+            for(int j=2;j<=n;j++){
+                if(i%j==0){
+                    if(i==j) {
+                        answer++;
+                    }
+                    break;
+                }
+
+            }
+        }
+        return answer;
+    }
+}
+
+------
