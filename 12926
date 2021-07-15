@@ -1,0 +1,19 @@
+class Solution {
+    public String solution(String s, int n) {
+        String answer = "";
+        for(int i=0;i<s.length();i++){
+            char tem = s.charAt(i);
+            if(tem>='a'&&tem<='z'){
+                if(tem+n>'z') answer+= (char)(tem+n-26);
+                else answer += (char) (tem + n);
+            }
+            else if(tem>='A'&&tem<='Z'){
+                if(tem+n>'Z')answer+= (char)(tem+n-26);
+                else answer += (char) (tem + n);
+            }
+            else answer+=(char)tem;
+
+        }
+        return answer;
+    }
+}
