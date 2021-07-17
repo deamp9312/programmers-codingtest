@@ -1,0 +1,44 @@
+class Solution {
+    public String solution(String[] participant, String[] completion) {
+        String answer = "";
+        for(int i=0; i< participant.length;i++){
+            for(int j=0;j< completion.length;j++){
+                boolean tx = true;
+
+                if(participant[i].equals(completion[j])){
+                    completion[j] = null;
+                    tx = false;
+                    break;
+                }
+                if(j== completion.length-1 && participant[i]!=completion[completion.length-1])
+                    answer += participant[i];
+            }
+        }
+        return answer;
+    }
+}
+
+---또 효율성 문제 때문에 불합격,,,,
+
+--------------------------------------
+
+import java.util.*;
+import java.io.*;
+
+class Solution {
+    public String solution(String[] participant, String[] completion) {
+        String answer = "";
+        
+        Arrays.sort(participant);
+        Arrays.sort(completion);
+
+
+        for(int i=0;i< completion.length;i++){
+            if(!participant[i].equals(completion[i])){
+                return participant[i];
+            }
+        }
+        return participant[participant.length-1];
+        
+    }
+}
