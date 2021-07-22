@@ -1,0 +1,36 @@
+class Solution {
+    public int solution(int n) {
+          int answer = fibo(n)%1234567;
+        
+        return answer;
+
+    }
+    static int fibo(int n){
+
+        if(n==0)return 0;
+        if(n==1)return 1;
+
+        return fibo(n-2)+fibo(n-1);
+    }
+}
+
+---기본 재귀로 풀면 시간 초과 나서 어떻게 해야할까 알고리즘 찾아봄... 피사노 주기 라는 방법이 있더라구요.,
+
+class Solution {
+    public int fib(int k) {
+        if (k == 1 || k == 2) return k;
+        int[] bottomUp = new int[k + 2];
+        bottomUp[1] = 1;
+        bottomUp[2] = 1;
+        for (int i = 3; i <= k; i++) {
+            bottomUp[i] = bottomUp[i - 1] % 1234567 + bottomUp[i - 2] % 1234567;
+        }
+        return bottomUp[k] % 1234567;
+    }
+
+    public int solution(int n) {
+        int answer = 0;
+        answer = fib(n);
+        return answer;
+    }
+}
