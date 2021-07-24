@@ -1,0 +1,32 @@
+class Solution
+{
+    public int solution(String s)
+    {
+        StringBuilder bs = new StringBuilder(s);
+        int answer=1;
+        int bsnum = bs.length();
+
+        while (answer==1) {
+            for (int i = 0; i < bsnum; i++) {
+                if(i==bs.length()-1){
+                    answer=0;
+                    break;
+                }
+                if (bs.charAt(i) == bs.charAt(i + 1)) {
+                    bs.deleteCharAt(i);
+                    bs.deleteCharAt(i);
+                    bsnum-=2;
+                    break;
+                }
+            }
+            if(bsnum==0)break;
+        }
+
+        return answer;
+    }
+}
+
+---성능 테스트에서 불합격 했습니다,,, 위 코드는,,
+
+
+---
