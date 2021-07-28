@@ -1,0 +1,52 @@
+import java.util.LinkedList;
+import java.util.List;
+
+
+class Solution {
+    public int solution(int[] nums) {
+        int answer = 0;
+     List<Integer> hashSet = new LinkedList<>();
+
+
+        for (int i = 0; i < nums.length-2; i++) {
+            int a = i+1;
+            int b = i+2;
+            int c = i+2;
+            while (true) {
+                if(b== nums.length){
+                    c++;
+                    a++;
+                    b=c;
+
+                    if(b== nums.length){
+                        break;
+                    }
+                }
+
+                int sum =0;
+                sum = nums[i] + nums[a] + nums[b];
+                hashSet.add(sum);
+                b++;
+
+
+            }
+        }
+        for (Integer integer : hashSet) {
+
+            for(int i=2;i<integer/2;i++){
+                if(integer%i==0){
+                    break;
+                }
+                if(i==integer/2-1){
+                    answer++;
+                    break;
+                }
+            }
+        }
+
+        
+        
+
+        return answer;
+    }
+}
