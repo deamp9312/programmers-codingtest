@@ -1,0 +1,56 @@
+ int N=4;      //스테이지 수 1-500
+        int[] stages={4, 4, 4, 4, 4};   //스테이지 길이 1-200000(20만)//사용자가 멈춰잇는 스테이지
+        int[] answer = new int[N];  //실패율이 높은 스테이지 부터 내림차순으로 스테이지 번호가 담겨있는
+
+        double num=0;
+        double max= stages.length;
+
+        double[] arr = new double[N+1];
+        double[] arr2 = new double[N+1];
+
+
+        for(int i=1;i<=N+1;i++){
+            for(int j=0;j< stages.length;j++){
+                if(stages[j]==i){
+                    arr[i-1]++;
+                    num++;
+
+                }
+            }
+            arr[i-1]=arr[i-1]/ max;
+            max = (stages.length - num);
+
+
+        }
+        arr2 = arr.clone();
+
+
+
+        for (double v : arr2) {
+            System.out.println("arr2 = " + v);
+        }
+        Arrays.sort(arr);
+
+        System.out.println("========");
+        for (double v : arr) {
+            System.out.println("arr = " + v);
+        }
+        int count =0;
+        System.out.println("========");
+
+        for(int i=arr2.length-1;i>=0;i--){
+            for(int j=0;j<arr2.length;j++) {
+                if (arr[i] == arr2[j]) {
+                    if(i==arr2.length-1&&arr[i]>=1)break;
+                    System.out.println("j===="+(j+1)+"====i"+i);
+                    System.out.println("arr[i] = " + arr[i]);
+                    answer[count]=j+1;
+                    if(count!=0&& answer[count-1]==j+1)continue;
+                    count++;
+                    break;
+                }
+            }
+        }
+        for (double v : answer) {
+            System.out.println("ar = " + v);
+        }
