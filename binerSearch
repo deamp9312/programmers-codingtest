@@ -1,0 +1,37 @@
+public class Main {
+    //짝 대 홀 소
+    public static void main(String[] args) {
+        int[] priorities = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+       
+
+        int num = binary(priorities, 4);
+        System.out.println("num = " + num);
+
+
+    }
+
+    static int binary(int[] arr, int findNum) {
+        //배열과 , 찾는 번호
+        int firstNum = 0;
+        int lastNum = arr.length -1;
+
+
+        do {
+            int centerNum = (firstNum + lastNum) / 2;
+            System.out.println("centerNum = " + centerNum);
+            if (findNum == centerNum)
+                return centerNum;
+
+            if (findNum > centerNum) {
+                findNum = centerNum + 1;
+
+            } else if (findNum < centerNum) {
+                lastNum = centerNum - 1;
+
+            }
+        } while (lastNum <= firstNum);
+
+        return -1;
+
+    }
+}
