@@ -1,0 +1,26 @@
+요즘 db공부하며 취업하기 위해 어떤 조건이 충족 되었는지 체크하며 다시 잡고 있다,,,
+
+class Solution {
+    public String solution(int n) {
+        String answer = "";
+        int num=0;
+
+        while (n!=0){
+            num=n%3;
+            n/=3;
+
+            if(num==0){
+                n=n-1;
+                num=4;
+                answer = "4" + answer;
+            }else if(num==1){
+                answer = "1" + answer;
+            }else if(num==2){
+                answer = "2" + answer ;
+            }
+
+
+        }
+        return answer;
+    }
+}
