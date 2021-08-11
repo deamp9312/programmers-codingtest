@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner sc = new Scanner(System.in);
+
+
+        String str = sc.nextLine();
+
+
+//        String str2= str.trim();
+
+//        String[] arr = str2.split(" ");
+
+        StringTokenizer st = new StringTokenizer(str, " ");
+
+
+        System.out.println(st.countTokens());
+
+
+
+    }
+}
+
+
+문자열 나누는 문제는 그냥 split으로 풀면서 넘어가고 했는데 동작원리 보니까 아에 " "공백 문자열일 경우 trim을통해 공백을 제거해도 빈 문자열이 반환되어 크기값은 1로 유지됨.. 
+
+고로 stringtokenizer을 사용해야함
