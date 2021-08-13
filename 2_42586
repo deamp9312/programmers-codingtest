@@ -1,0 +1,74 @@
+fail
+
+--시간 생각 안하고 1일때만 생각하고 코딩함.... 근데 소스코드 아까버서 걍 기록... 추후 다시 해서 
+
+package main;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+
+
+        int[] progresses = {95, 90, 99, 99, 80, 99};
+        int[] speeds = {1, 1, 1, 1, 1, 1};
+
+
+        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> result = new Stack<>();
+
+
+
+        for(int i=0;i< progresses.length;i++){
+            stack.add(progresses[i]);
+        }
+        stack.add(-1); //검증
+
+        int stack_size = stack.size();
+
+        int num=0;  //기준
+        int num2=1; //비교대상자
+
+
+
+        while (true) {//95 지워지고 90부터 0 시작 num2=3
+
+            if(stack.get(num)>=stack.get(num2)){
+
+
+                for(int i=0;i<num2;i++) {
+
+                    stack.remove(num);
+                }
+                result.add(num2);
+
+
+                num2=num+1;
+                if(stack.get(0)==-1)break;
+
+
+            }else if(stack.get(num)<stack.get(num2)){
+
+                num2++;
+            }
+
+        }
+        int[] answer = new int[result.size()];
+        for(int i=0;i<result.size();i++){
+            answer[i] = result.get(i);
+            System.out.println("answer[i] = " + answer[i]);
+        }
+
+
+   
+    }
+
+}
+
+
+
+
