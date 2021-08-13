@@ -1,0 +1,52 @@
+package main;
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int num = sc.nextInt();
+
+        int sel = 0;
+        int dec = 0;
+
+        if(num==1){
+            System.out.println(1+"/"+1);
+        }
+
+        for (int i = 1; i < num ; i++) { //if =14면 홀수
+            int a = (i * (i + 1)) / 2; //i가 1이면 1~3까지 수 이니까 n=2면 i 가 1일때 만족,i가2일땐 불만족
+            int b = ((i + 1) * (i + 2)) / 2;
+
+
+
+            if (a <= num && b > num) {
+                if (a == num) {
+                    if (i % 2 == 0)
+                        System.out.println(i + "/" + 1);
+                    else
+                        System.out.println(1 + "/" + i);
+
+
+                    break;
+                } else {
+
+
+                    sel = i + 1;    //분모  //짝수 일때  //홀수면 분자
+                    dec = num - a - 1;     //
+
+                    if ((sel) % 2 == 0) {//짝수면
+                        System.out.println((1 + dec) + "/" + (sel - dec));
+                    } else
+                        System.out.println((sel - dec) + "/" + (1 + dec));
+                    break;
+                }
+            }
+        }
+
+
+    }
+}
