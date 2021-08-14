@@ -1,0 +1,16 @@
+class Solution {
+    public long solution(int price, int money, int count) {
+        long answer = -1;
+        
+        Long play = ( ((long)price * (long)count) * (1 + (long)count)) / 2;
+
+        answer = play > money ? (play - money) : 0;
+
+
+        
+
+        return answer;
+    }
+}
+
+문제 자체는 어렵지 않은데,, 반환값이 10원 남아도 0원을 리턴하는것읗 놓쳐,, 시간이 걸렸습니다 ㅎㅎ
