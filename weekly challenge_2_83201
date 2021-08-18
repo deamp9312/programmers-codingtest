@@ -1,0 +1,68 @@
+import java.io.IOException;
+import java.util.Arrays;
+
+class Solution {
+    public String solution(int[][] scores) {
+              int recode = scores[0].length;   //현재 5행 0부터니까 4까지
+
+        int[] arr = new int[recode];
+        int[] arr2 = new int[recode];
+        String answer = "";
+
+
+        for (int i = 0; i < recode; i++) {//자신의 값 저장
+            int max_min = scores[i][i];
+            int max_count = 0;       //max비교 할때 max_num보다 큰 값이 있을때 max_count 증가
+            int min_count = 0;
+            int count = 0;
+            for (int j = 0; j < scores.length; j++) {
+//                if(max_min>=scores[i][j])
+                arr[j] = scores[j][i];
+                System.out.print("arr[j] = " + arr[j] + " ");
+            }
+            System.out.println();
+
+            Arrays.sort(arr);
+
+            for (int k = 0; k < arr.length; k++) {
+                if (max_min <= arr[k]) {
+                    max_count++;
+                }
+                     if (max_min >= arr[k]) {
+                    min_count++;
+                }
+
+                arr2[i] += arr[k];
+
+
+            }
+            if (min_count <= 1 || max_count <= 1) {
+                arr2[i] -= max_min;
+                count++;
+            }
+
+
+                System.out.println("i = " + (double) arr2[i] / (arr.length - count));//(double)m/(arr.length-count)
+
+                double score = (double) arr2[i] / (arr.length - count);
+
+                if (score >= 90) {
+                    answer += "A";
+                } else if (score >= 80 && score < 90) {
+                    answer += "B";
+                } else if (score >= 70 && score < 80) {
+                    answer += "C";
+                } else if (score >= 50 && score < 70) {
+                    answer += "D";
+                } else if (score < 50) {
+                    answer += "F";
+                }
+
+
+
+
+
+        }
+        return answer;
+    }
+}
