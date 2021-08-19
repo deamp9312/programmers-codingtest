@@ -1,0 +1,23 @@
+class Solution {
+    public int solution(int n) {
+        int answer = 0;
+
+        int cnt = Integer.bitCount(n);
+
+        int num =0;
+        
+        while (true){
+            n++;
+
+            num = Integer.bitCount(n);
+            
+            if(cnt == num){
+                answer =n;
+                break;
+            }
+            
+        }
+        
+        return answer;
+    }
+}
