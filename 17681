@@ -1,0 +1,79 @@
+class Solution {
+    public String[] solution(int n, int[] arr1, int[] arr2) {
+        
+        String[] result1 = new String[n];
+        String[] result2 = new String[n];
+
+        String[] answer = new String[n];
+
+
+        //9%2 == 1 /4%2 == 0 / 2%2 == 0 /1 %2 == 1
+
+
+
+        for(int i=0;i<n;i++){
+            int a = arr1[i];
+            String aString = "";
+
+            int b = arr2[i];
+            String bString = "";
+
+            while (a!=0){
+
+                aString = a % 2+aString;
+                a/=2;
+
+                System.out.println("aString = " + aString);
+
+            }
+            result1[i] = aString;
+
+
+            while (b!=0){
+
+                bString =""+ b % 2+bString;
+                b/=2;
+
+                System.out.println("bString = " + bString);
+
+            }
+            result2[i] = bString;
+
+            while (result1[i].length()!=n){
+                result1[i] = "0" + result1[i];
+            }
+
+            while (result2[i].length()!=n){
+                result2[i] = "0" + result2[i];
+            }
+
+            System.out.println("result2[i] = " + result2[i]);
+            System.out.println("result1[i] = " + result1[i]);
+            System.out.println("================================");
+
+//            System.out.println("result1[i] = " + result1[i]);
+
+        }
+        System.out.println("========aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa========================");
+        for(int i=0;i<n;i++){
+            String stinrg1 = "";
+
+
+            for(int k=0;k<n;k++){
+                if(result1[i].charAt(k)=='1'||result2[i].charAt(k)=='1'){
+//                    answer[i] += "#";
+                    stinrg1 += "#";
+
+                }else if(result1[i].charAt(k)=='0'||result2[i].charAt(k)=='0'){
+                    stinrg1 += " ";
+                }
+
+            }
+            answer[i]=stinrg1;
+
+            System.out.println("answer[i] = " + answer[i]);
+        }
+        
+        return answer;
+    }
+}
