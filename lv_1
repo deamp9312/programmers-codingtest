@@ -1,0 +1,48 @@
+==1번
+class Solution {
+    public long solution(int a, int b) {
+        long answer = 0;
+             if(a>b){
+            int temp = b;
+            b=a;
+            a=temp;
+        }
+         for(int i=a;i<=b;i++){
+            answer+=(long)i;
+        }
+        return answer;
+    }
+}
+
+===2번
+
+class Solution {
+    public int solution(int n) {
+        int answer = 0;
+            String nString = "";
+
+
+        while (true){
+
+            nString=""+n % 3+nString;
+            n=n/3;
+
+            if(n==0)break;
+
+        }
+        System.out.println("nString = " + nString);
+
+        int chat =0;
+        int ten =1;
+        for(int i=0;i<nString.length();i++){
+            chat+=Integer.parseInt(nString.charAt(i)+"")*ten;
+            ten*=3;
+        }
+        answer = chat;
+
+
+
+
+        return answer;
+    }
+}
