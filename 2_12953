@@ -1,0 +1,24 @@
+확실히 백준 단계별로 풀기 & 알고리즘 강의 문제를 풀며 다시한번 개념이 아닌 풀이로서의 개념을 다지고 나니 안보이던 문제들이 조금은 쉽게 느껴진다
+
+class Solution {
+    public int solution(int[] arr) {
+          int answer =1;
+        for(int i=0;i<arr.length;i++){
+             answer = f2(arr[i],answer);
+        }
+        return answer;
+    }
+    
+    
+     public static int f1(int a,int b){
+        if(b==0){
+            return a;
+        }
+        return f1(b,a%b);
+
+    }
+
+    public static int f2(int a,int b){
+        return a/f1(a,b)*b;
+    }
+}
