@@ -1,0 +1,56 @@
+import java.io.*;
+import java.util.*;
+class Main {
+	public static int result=0;
+	public static int n;
+	public static int[][] arr;
+	public static boolean[] bol;
+	public static void main(String[] args) throws Exception {
+		Scanner sc = new Scanner(System.in);
+		n = sc.nextInt();
+		//요청수 n개
+		//계약금 m 마감기한 d 어떤거든 1일 걸림 최대한 많이벌수잇는 금액
+		
+		bol = new boolean[n];
+		arr = new int[n][2];
+		for(int i=0;i<n;i++){
+			arr[i][0] = sc.nextInt();//m
+			arr[i][1] = sc.nextInt();//d
+		}
+
+		Arrays.sort(arr,(a1,a2)->{
+			if(a1[1]==a2[1])
+			return a1[0]-a2[0];
+			
+			return a1[1]-a2[1];
+		});
+		int last = arr[n-1][1];
+		
+
+		for(int i=last;i>0;i--){
+			f1(i);
+		}
+		System.out.print(result);
+		
+		
+		
+	}
+	public static void f1(int a){
+		
+		int max =0;
+		int number=-1;
+		for(int i=0;i<n;i++){
+			if(arr[i][1]>=a){
+				if(arr[i][0]>max&&!bol[i]){
+					max=arr[i][0];
+					number=i;
+				}
+			}
+		}
+		if(max!=0&&number!=-1){
+		bol[number]=true;
+		result+=max;
+	}
+		
+	}
+}
