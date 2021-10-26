@@ -1,0 +1,48 @@
+import java.util.*;
+class Solution {
+    public int solution(int[] priorities, int location) {
+       Scanner sc = new Scanner(System.in);
+
+        int answer=0;
+
+        boolean[] table = new boolean[priorities.length];
+        int[] copy_arr = Arrays.copyOf(priorities,priorities.length);
+
+        Arrays.sort(copy_arr);
+
+        Stack<Integer> stack = new Stack<>();
+        for(int i=0;i<copy_arr.length;i++){
+            stack.push(copy_arr[i]);
+        }
+//뒤부터 시작
+        int point =0;
+        for(int k=0;k<priorities.length;k++){
+            int num = stack.pop();
+
+
+            for(int i=0;i<priorities.length;i++){
+                int start = i+point;
+                while (start>=priorities.length){
+                    start=start-priorities.length;
+                }
+                System.out.println("start = " + start);
+
+                if(priorities[start]==num&&!table[start]){
+                    answer++;
+                    point=start;
+                    table[start]=true;
+
+                    if(start==location){
+                        return answer;
+                    }
+
+                    break;
+                }
+            }
+        }
+
+
+        return answer;
+
+    }
+}
