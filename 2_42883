@@ -1,0 +1,70 @@
+내 코드 dfs로 풀엇는데 너무 쉬운 방법이 있음...ㅠㅠ
+
+--제가 쓴 코드
+import java.util.*;
+class Solution {
+    public static int max=0;
+    public static int number_length;
+    public static boolean[] table;
+    public String solution(String number, int k) {
+        String answer = "";
+        number_length=number.length();
+        table=new boolean[number_length];
+        dfs(0,number,k);
+        answer=max+"";
+        return answer;
+    }
+    
+     public static void dfs(int depth,String number,int k){
+        if(depth==k){
+            String num ="";
+            for(int i=0;i<number.length();i++){
+
+                if(!table[i]){
+                    num+=""+number.charAt(i);
+                }
+
+            }
+            int par = Integer.parseInt(num);
+            if(par>max){
+                max=par;
+            }
+            return;
+        }
+
+        for(int i=0;i<number.length();i++){
+            if(!table[i]) {
+                table[i] = true;
+                dfs(depth + 1, number, k);
+                table[i] = false;
+            }
+
+        }
+    }
+    
+}
+---문제에서 요구하는 답..
+class Solution {
+    public String solution(String number, int k) {
+        StringBuilder a = new StringBuilder(number);
+        int i = 0;
+        int j = 0;
+        int idx;
+        int l;
+
+        for (i = 0; i < k; i++) {
+            l=a.length();
+            idx = l - 1;
+            for (j = 0; j < l - 1; j++) {
+                if (a.charAt(j) < a.charAt(j + 1)) {
+                    idx = j;
+                    break;
+                }
+            }
+
+            a.deleteCharAt(idx);
+        }
+
+        return a.toString();
+    }
+}
