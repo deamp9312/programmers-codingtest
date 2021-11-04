@@ -1,0 +1,22 @@
+ String[] 아이디 리스트 = {"B A D C", "D A", "B A D", "D B"};
+        int k = 2;
+        
+        int answer =0;
+        Map<String, Integer> map = new HashMap<>();
+        for(int i=0;i<id_list.length;i++){
+            String[] str = id_list[i].split(" ");
+            for(int j=0;j<str.length;j++){
+                if(map.get(str[j])==null){
+                    map.put(str[j], 1);
+                    answer++;
+                }else {
+                    int count = map.get(str[j]);
+                    if(count<k) {
+                        map.put(str[j], ++count);
+                        answer++;
+                    }
+                }
+
+            }
+        }
+        System.out.println("answer = " + answer);
