@@ -1,0 +1,5 @@
+SELECT ANIMAL_TYPE, IFNULL(NAME, 'No name') AS NAME,SEX_UPON_INTAKE
+FROM ANIMAL_INS
+
+
+null처리를 어떻게 해야 할까 생각했는데 검색을 통해 IFNULL을 알게 되었고 적용해 보았습니다.
